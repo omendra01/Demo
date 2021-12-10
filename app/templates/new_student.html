@@ -1,0 +1,104 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <title>demo</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+  </head>
+  <body>
+   
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="md-6-col-12 mx-auto">
+                <form method="post"  name="myform" acttion="{% url 'addstd' %}" style="width:450px;">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label>Student Name</label>
+                      <input type="text" name="student" autocomplete="off" class="form-control" placeholder="Enter Name" Required>
+                      
+                    </div>
+                    <div class="form-group">
+                      <label>Father Name</label>
+                      <input type="text" class="form-control" autocomplete="off" name="father" placeholder="Enter Father Name" Required>
+                    </div>
+                    <div class="form-group">
+                        <label>DOB</label>
+                        <input type="date" name="dob" class="form-control" Required>
+                      </div>
+                      <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" name="address"  autocomplete="off" class="form-control" Required\>
+                      </div>
+                      <div class="form-group">
+                        <label>State</label>
+                        <input type="text" name="state" autocomplete="off" class="form-control" Required\>
+                      </div>
+                      <div class="form-group">
+                        <label>Pin</label>
+                        <input type="number" name="pin" autocomplete="off" class="form-control" Required\>
+                      </div>
+                      <div class="form-group">
+                        <label>Phone No</label>
+                        <input type="number" name="phone" autocomplete="off" class="form-control" Required\>
+                      </div>
+                      <div class="form-group">
+                        <label>email</label>
+                        <input type="email" name="email" autocomplete="off" class="form-control" Required\>
+                      </div>
+                      <div class="form-group">
+                        <label>Class</label>
+                        <select class="form-control" name="clss" Required>
+                            <option selected>---class---</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            
+                        </select>
+                       
+                      </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+
+        </div>
+      </div>
+    
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script>
+          {% for msg in messages %}
+              {% if msg %}
+                  swal({
+                  title: "Info!",
+                  text: "{{msg}}",
+                  icon: "success", 
+                  });
+              {% endif %}
+          {% endfor %}
+      </script>
+      <script>
+       
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {% comment %} <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> {% endcomment %}
+  </body>
+</html>
